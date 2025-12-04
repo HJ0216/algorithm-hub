@@ -3,15 +3,14 @@ class Solution {
         int answer = 0;
         
         for(int i=left; i<=right; i++){
-            int count = 0;
-            for(int j=1; j<=i; j++){
-                if(i%j == 0){
-                    count++;
-                }
+            int sqrt = (int)Math.sqrt(i);
+            if(sqrt * sqrt == i){
+                answer -= i;
+            } else {
+                answer += i;
             }
-            
-            answer += (count%2==0) ? i : -i;
         }
+        
         return answer;
     }
 }
