@@ -1,17 +1,16 @@
 class Solution {
     boolean solution(String s) {
-        char[] chars = s.toCharArray();
-        int countP = 0;
-        int countY = 0;
+        char[] chars = s.toLowerCase().toCharArray();
+        int count = 0;
         
         for(char c: chars){
-            if(c == 'p' || c == 'P'){
-                countP++;
-            } else if(c == 'y' || c== 'Y'){
-                countY++;
+            if(c == 'p'){
+                count++;
+            } else if(c == 'y'){
+                count--;
             }
         }
         
-        return countP == countY;
+        return count == 0;
     }
 }
