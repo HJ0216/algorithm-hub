@@ -6,13 +6,13 @@ class Solution {
             Arrays.sort(size);
         }
         
-        int width = 0;
-        int height = 0;
-        for(int i=0; i<sizes.length; i++){
-            width = width >= sizes[i][0] ? width : sizes[i][0];
-            height = height >= sizes[i][1] ? height : sizes[i][1];
+        int maxWidth = 0;
+        int maxHeight = 0;
+        for(int[] size : sizes){
+            maxWidth = Math.max(maxWidth, size[0]);
+            maxHeight = Math.max(maxHeight, size[1]);
         }
 
-        return width * height;
+        return maxWidth * maxHeight;
     }
 }
