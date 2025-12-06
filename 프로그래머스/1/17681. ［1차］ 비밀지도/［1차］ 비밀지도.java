@@ -1,17 +1,11 @@
 class Solution {
     public String[] solution(int n, int[] arr1, int[] arr2) {
         String[] answer = new String[n];
-
-        String[] strArr1 = new String[n];
-        String[] strArr2 = new String[n];
         
         for(int i=0; i<n; i++){
-            strArr1[i] = getBinary(arr1[i], n);
-            strArr2[i] = getBinary(arr2[i], n);
-        }
-        
-        for(int i=0; i<n; i++){
-            answer[i] = getSecretMap(strArr1[i], strArr2[i]);
+            String str1 = getBinary(arr1[i], n);
+            String str2 = getBinary(arr2[i], n);
+            answer[i] = getSecretMap(str1, str2);
         }
 
         return answer;
