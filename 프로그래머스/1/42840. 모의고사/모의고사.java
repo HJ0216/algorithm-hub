@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Solution {
+    public int[] solution(int[] answers) {        
+        int[] student1 = {1,2,3,4,5};
+        int[] student2 = {2,1,2,3,2,4,2,5};
+        int[] student3 = {3,3,1,1,2,2,4,4,5,5};
+
+        int[] scores = new int[answers.length];
+        
+        for(int i = 0; i<answers.length; i++){
+            if(student1[i%student1.length] == answers[i]){
+                scores[0]++;
+            }
+            if(student2[i%student2.length] == answers[i]){
+                scores[1]++;
+            }
+            if(student3[i%student3.length] == answers[i]){
+                scores[2]++;
+            }
+        }
+        
+        int maxScore = 0;
+        for(int score : scores){
+            if(maxScore<score){
+                maxScore = score;
+            }
+        }
+
+        List<Integer> students = new ArrayList<>();
+        for(int i=0; i<3; i++){
+            if(maxScore == scores[i]){
+                students.add(i+1);
+            }
+        }
+
+        
+        return students.stream().mapToInt(i -> i).toArray();
+    }
+}
