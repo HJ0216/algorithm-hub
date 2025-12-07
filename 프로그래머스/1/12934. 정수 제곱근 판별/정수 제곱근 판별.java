@@ -1,15 +1,10 @@
 class Solution {
     public long solution(long n) {
-        if(n == 1){
-            return 4;
-        }
+        long answer = 0;
         
-        for(int i=2; i<=n/2; i++){
-            if(n%i == 0 && n/i == i){
-                return (long)(i+1) * (i+1);
-            }
-        }
+        long sqrt = (long)Math.sqrt(n);
+        answer = (sqrt * sqrt == n) ? ((sqrt+1) * (sqrt+1)) : -1;
         
-        return -1;
+        return answer;
     }
 }
